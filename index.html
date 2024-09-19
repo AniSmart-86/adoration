@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #000;
+            color: #fff;
+        }
+
+        .text{
+            font-size: 50px;
+            font-weight: 800;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+        .box{
+            position: relative;
+            width: 200px;
+            height: 200px;
+            transform-style: preserve-3d;
+            animation: animate 20s linear infinite;
+        }
+
+
+        .box span{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            transform-origin: center;
+            transform-style: preserve-3d;
+            transform: rotateY(calc(var(--i) * 45deg )) translateZ(400px);
+        }
+
+        .box span img{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;            
+        }
+
+        @keyframes animate{
+        0%{
+            transform: perspective(1000px) rotateY(0deg);
+        }
+        100%{
+            transform: perspective(1000px) rotateY(360deg);
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <span style="--i:1;"><img src="mbaka1.jpeg" alt=""></span>
+        <span style="--i:2;"><img src="mbaka2.jpeg" alt=""></span>
+        <span style="--i:3;"><img src="mbaka3.jpeg" alt=""></span>
+        <span style="--i:4;"><img src="mbaka4.jpeg" alt=""></span>
+        <span style="--i:5;"><img src="mbaka5.jpeg" alt=""></span>
+        <span style="--i:6;"><img src="mbaka6.jpeg" alt=""></span>
+        <span style="--i:7;"><img src="amen-img.jpeg" alt=""></span>
+        <span style="--i:8;"><img src="multi-life.jpeg" alt=""></span>
+        <span style="--i:9;"><img src="multi2.jpeg" alt=""></span>
+        <span style="--i:10;"><img src="mbaka7.jpeg" alt=""></span>
+        <span style="--i:11;"><img src="mbaka8.jpeg" alt=""></span>
+        <span style="--i:13;"><img src="mbaka9.jpeg" alt=""></span>
+       
+        
+        <div class="text">ADORATION MINISTRY</div>
+    </div>
+    <h1>AMEN</h1>
+</body>
+</html>
