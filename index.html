@@ -1,89 +1,253 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Williams Uchemba Family Profile</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      min-height: 100vh;
+      background: linear-gradient(135deg, #0d0d0d, #1a1a1a);
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      padding: 20px;
+      overflow: hidden;
+    }
 
-        body{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            background-color: #000;
-            color: #fff;
-        }
+    /* wrapper card to center content and constrain width */
+    .card {
+      width: 100%;
+      max-width: 980px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 18px;
+    }
 
-        .text{
-            font-size: 50px;
-            font-weight: 800;
-            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-        }
-        .box{
-            position: relative;
-            width: 200px;
-            height: 200px;
-            transform-style: preserve-3d;
-            animation: animate 20s linear infinite;
-        }
+    .bio-card {
+      background: rgb(55, 55, 55);
+      width: 100%;
+      max-width: 2000px;
+      padding: 25px;
+      border-radius: 20px;
+      border: 1px solid green;
+      box-shadow: 0 0 25px rgba(255, 255, 255, 0.08);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      z-index: 1;
+    }
 
+    .bio-card::before {
+      content: "";
+      position: absolute;
+      width: 120%;
+      height: 120%;
+      background: rgba(255, 255, 255, 0.03);
+      top: -10%;
+      left: -10%;
+      transform: rotate(12deg);
+      pointer-events: none;
+    }
 
-        .box span{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            transform-origin: center;
-            transform-style: preserve-3d;
-            transform: rotateY(calc(var(--i) * 45deg )) translateZ(400px);
-        }
+    .gallery-container {
+      position: relative;
+      width: 170px;
+      height: 200px;
+      margin: 0 auto;
+      transform-style: preserve-3d;
+      animation: rotate 22s linear infinite;
+      z-index: 2;
+      will-change: transform;
+    }
 
-        .box span img{
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;            
-        }
+    .gallery-container span {
+      position: absolute;
+      width: 70%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      transform-style: preserve-3d;
+      transform: rotateY(calc(var(--i) * 22.5deg)) translateZ(380px);
+    }
 
-        @keyframes animate{
-        0%{
-            transform: perspective(1000px) rotateY(0deg);
-        }
-        100%{
-            transform: perspective(1000px) rotateY(360deg);
-        }
-        }
+    .gallery-container img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px;
+      border: 2px solid #03cc17;
+      display: block;
+    }
 
-    </style>
+    @keyframes rotate {
+      0% { transform: perspective(1000px) rotateY(0deg); }
+      100% { transform: perspective(1000px) rotateY(360deg); }
+    }
+
+    h2 {
+      font-size: 30px;
+      margin-bottom: 80px;
+      font-weight: 800;
+      z-index:-3;
+    }
+
+    .bio {
+      font-size: 15px;
+      line-height: 1.6;
+      margin: 15px 0;
+      opacity: .9;
+      word-break: break-word;
+    }
+
+    .socials {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .socials a {
+      color: #fff;
+      text-decoration: none;
+      background: #222;
+      padding: 10px 14px;
+      border-radius: 10px;
+      border: 1px solid green;
+      font-size: 14px;
+      cursor: pointer;
+      transition: .3s;
+    }
+
+    .socials a:hover {
+      background: #525253;
+      transform: translateY(-3px);
+    }
+
+    /* Responsive: small screens */
+    @media (max-width: 600px) {
+      body {
+        padding: 12px;
+      }
+
+      .card {
+        gap: 12px;
+      }
+
+      .gallery-container {
+        width: 140px;
+        height: 160px;
+        /* animation: none; */
+        margin-bottom: 8px;
+      }
+
+      .gallery-container span {
+        /* reduce depth so images don't project outside viewport */
+        /* transform: rotateY(calc(var(--i) * 22.5deg)) translateZ(140px); */
+        width: 100%;
+      }
+
+      .gallery-container img {
+        border-radius: 12px;
+        border-width: 1px;
+      }
+
+      .bio-card {
+        width: 100%;
+        max-width: 420px;
+        padding: 18px;
+        border-radius: 14px;
+        margin: 0 auto;
+        z-index: -3;
+      }
+
+      h2 {
+        font-size: 22px;
+      }
+
+      .bio {
+        font-size: 14px;
+      }
+
+      .socials a {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
+    }
+
+    /* Extra small phones */
+    @media (max-width: 380px) {
+      .gallery-container {
+        width: 120px;
+        height: 140px;
+      }
+
+      .bio-card {
+        max-width: 340px;
+        padding: 14px;
+      }
+
+      h2 { font-size: 20px; }
+      .bio { font-size: 13px; }
+    }
+
+ 
+  </style>
 </head>
 <body>
-    <div class="box">
-        <span style="--i:1;"><img src="mbaka1.jpeg" alt=""></span>
-        <span style="--i:2;"><img src="mbaka2.jpeg" alt=""></span>
-        <span style="--i:3;"><img src="mbaka3.jpeg" alt=""></span>
-        <span style="--i:4;"><img src="mbaka4.jpeg" alt=""></span>
-        <span style="--i:5;"><img src="mbaka5.jpeg" alt=""></span>
-        <span style="--i:6;"><img src="mbaka6.jpeg" alt=""></span>
-        <span style="--i:7;"><img src="amen-img.jpeg" alt=""></span>
-        <span style="--i:8;"><img src="multi-life.jpeg" alt=""></span>
-        <span style="--i:9;"><img src="multi2.jpeg" alt=""></span>
-        <span style="--i:10;"><img src="mbaka7.jpeg" alt=""></span>
-        <span style="--i:11;"><img src="mbaka8.jpeg" alt=""></span>
-        <span style="--i:13;"><img src="mbaka9.jpeg" alt=""></span>
-       
-        
-        <div class="text">ADORATION MINISTRY</div>
+
+  <div class="card">
+
+      <div class="gallery-container">
+        <h2>The Uchemba's Family</h2>
+      <span style="--i:0"><img src="./williams-family-img/img1.jpg" alt="" /></span>
+      <span style="--i:1"><img src="./williams-family-img/img2.jpg" alt="" /></span>
+      <span style="--i:2"><img src="./williams-family-img/img3.jpg" alt="" /></span>
+      <span style="--i:3"><img src="./williams-family-img/img4.jpg" alt="" /></span>
+      <span style="--i:4"><img src="./williams-family-img/img5.jpg" alt="" /></span>
+      <span style="--i:5"><img src="./williams-family-img/img6.jpg" alt="" /></span>
+      <span style="--i:6"><img src="./williams-family-img/img7.jpg" alt="" /></span>
+      <span style="--i:7"><img src="./williams-family-img/img8.jpg" alt="" /></span>
+      <span style="--i:8"><img src="./williams-family-img/img9.jpg" alt="" /></span>
+      <span style="--i:9"><img src="./williams-family-img/img10.jpg" alt="" /></span>
+      <span style="--i:10"><img src="./williams-family-img/img11.jpg" alt="" /></span>
+      <span style="--i:11"><img src="./williams-family-img/img12.jpg" alt="" /></span>
+      <span style="--i:12"><img src="./williams-family-img/img13.jpg" alt="" /></span>
+      <span style="--i:13"><img src="./williams-family-img/img14.jpg" alt="" /></span>
+      <span style="--i:14"><img src="./williams-family-img/img15.jpg" alt="" /></span>
+      <span style="--i:15"><img src="./williams-family-img/img16.jpg" alt="" /></span>
     </div>
-    <h1>AMEN</h1>
+
+
+    <div class="bio-card">
+
+        <p class="bio">
+      Williams Uchemba is a Nigerian actor, filmmaker, comedian, philanthropist, and entrepreneur known for his strong influence both in the entertainment industry and humanitarian space. Rising to fame as a child actor in Nollywood, he has continued to build an admirable legacy with impactful movie roles, creative projects, and charity initiatives under the Williams Uchemba Foundation.
+      <br><br>
+      He is married to Brunella Oscar, and together they share a beautiful family that often inspires many with their values, love, and public influence. Williams continues to use his platform to entertain, educate, and uplift communities across Nigeria and beyond.
+    </p>
+
+    <div class="socials">
+        <a href="https://instagram.com/williamsuchemba" target="_blank">Instagram</a>
+        <a href="https://facebook.com/williamsuchemba" target="_blank">Facebook</a>
+        <a href="https://x.com/williamsuchemba" target="_blank">Twitter</a>
+        <a href="https://youtube.com" target="_blank">YouTube</a>
+    </div>
+</div>
+
+  </div>
+
 </body>
 </html>
